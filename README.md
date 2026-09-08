@@ -38,7 +38,7 @@ protect our projects from vandalism.
 ### Task 01.01 - Set up Github account
 Github requires an account before you can do a lot of things. If you already have an account you should
 log in now. If you don't have an account you should go to the sign up page at
-(https://github.com/signup)[https://github.com/signup] and create a new account with your school or personal
+[https://github.com/signup](https://github.com/signup) and create a new account with your school or personal
 email and a strong password. I don't think the "Continue with Google" option works with school emails. Once
 you are able to log in you should let a mentor know and we will add your account to the organization.
 
