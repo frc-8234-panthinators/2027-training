@@ -12,7 +12,7 @@ everyone is doing the same thing and can help each other out. For example, the t
 __Markdown__ which is a type of code that lets you format text and can be viewed in your web browser on Github.
 This works well for showing example code and commands, which you will use in the training. Here is some code:
 ```javascript
-fun add(a, b) {
+function add(a, b) {
   return a + b;
 }
 ```
@@ -53,3 +53,43 @@ keep track of changes to code. Three important concepts are Commits, Branches, a
 
 This task is complete when you are able to run `git --version` on your computer in the Git shell, command prompt, or Powershell and it outputs
 the version of git installed on the computer
+
+### Task 01.03 - Git clone
+Git has a copy of the code history on each person's computer so you can work offline and combine your changes later. Github acts like a special computer that you can combine your changes with using Pull Requests. You can also make a copy of the code history from Github using `git clone`.
+
+This task is complete when you have run `git clone https://github.com/frc-8234-panthinators/2027-training.git` to make a copy of the training on your computer
+
+### Task 01.04 - Git branches
+Git allows multiple branches so that you can work on multiple things at the same time without needing to constantly combine your changes with everyone else.
+You can also have different versions of the code for experimenting, or even multiple versions with different features. For our team we will
+have the main code running on the robot in the `main` branch and individual people's work on `<name>-<description>` branches like `travis-tracking`
+
+This task is complete when you have run `git branch <yourname>-tracking` to create your own branch for tracking your progress and `git switch <yourname>-tracking` to use that branch on your computer
+
+### Task 01.05 - Git Commits
+Git commits use a two-step process: First you "stage" your changes and then once everything is staged and ready you "commit" the change. You
+can stage your changes in VSCode or on the command line with `git add <file>` and then commit them in VSCode or on the command line with `git commit -m "<description>"` like `git commit -m "Update tasks for 09/12/26"`
+
+This task is complete when you have made a copy of `github/travis.md` named for yourself instead of "travis", staged the file, and committed your change on your computer.
+
+### Task 01.06 - Git Push
+Git lets you send changes to a server using `git push`. You can also push changes using VSCode. Github accepts pushes from your computer when you are logged in to github correctly. On the team you should always push changes to your own branch and not `main` so that you can use a pull request and have
+someone else check that your changes are right.
+
+This task is complete when you've pushed your tracking branch to Github
+
+### Task 01.07 - Github Pull Request
+Github merges changes for you using pull requests. Pull requests let you see the changes on the website, comment on changes, and approve or reject changes. Github will usually show a banner right after you push a change that lets you open a pull request, or you can create one from the pull requests tab
+
+This task is complete when you've opened a pull request from your branch to `main`
+
+### Task 01.08 - Making More Changes
+You can keep using a branch to make more changes or create a fresh one for each pull request. I recommend using a fresh branch so that you don't 
+need to keep your branch up to date with other changes to `main`. 
+
+This task is complete when you have updated your tracking file to mark the previous tasks as complete by putting an 'x' in the boxes like `[x]`, 
+committed the change, pushed the branch to github, created a Pull Request (PR) and merged the Pull Request
+
+## Unit 02 - Robotics Coding
+
+Read the WPILib zero to robot tutorial at https://docs.wpilib.org/en/stable/docs/zero-to-robot/introduction.html
