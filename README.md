@@ -91,5 +91,17 @@ This task is complete when you have updated your tracking file to mark the previ
 committed the change, pushed the branch to github, created a Pull Request (PR) and merged the Pull Request
 
 ## Unit 02 - Robotics Coding
+If you are not familiar with Java, go check out [RESOURCES.md](RESOURCES.md) and follow the java resources before continuing.
 
-Read the WPILib zero to robot tutorial at https://docs.wpilib.org/en/stable/docs/zero-to-robot/introduction.html
+### Task 02.01 - WPIlib
+Read the WPILib zero to robot tutorial at https://docs.wpilib.org/en/stable/docs/zero-to-robot/introduction.html so you understand the basics of how robots are set up to run using WPILib
+
+### Task 02.02 - Command Robot
+We will do mostly command-based control of the robot. Read the wpilib documentation about commands https://docs.wpilib.org/en/stable/docs/software/commandbased/commands.html
+
+### Task 02.03 - Mechanisms
+We will use YAMS to help set up our subsystems so that it is easier to configure and simulate the motors correctly. Read the documentation at https://yams.yassrobotics.com/documentation/why-yams
+
+### Task 02.04 - Swerve Drive
+We will use YAGSL to help set up the swerve drive. YAGSL uses YAMS but lets you configure the drive using JSON files
+
