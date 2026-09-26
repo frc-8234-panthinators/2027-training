@@ -105,3 +105,89 @@ We will use YAMS to help set up our subsystems so that it is easier to configure
 ### Task 02.04 - Swerve Drive
 We will use YAGSL to help set up the swerve drive. YAGSL uses YAMS but lets you configure the drive using JSON files
 
+## Unit 03 - Example Robot
+The goal of this unit is to learn by coding for a fake robot with some common mechanisms.
+
+### Task 03.01 - New Repository
+ALL OF THE CODE IN THIS UNIT WILL BE SAVED IN https://github.com/frc-8234-panthinators/2027-Training-ExampleBot
+
+First, make sure you have the 2026 version of WPILib installed from https://github.com/wpilibsuite/allwpilib/releases/tag/v2026.2.1
+Then, create a new command robot project and run `git init` to initialize the repository and then `git remote add origin https://github.com/frc-8234-panthinators/2027-Training-ExampleBot.git` to link your local repository to the GitHub. Finally, make your own branch with `git switch --create <yourname>-main` and push it with `git push origin --set-upstream <yourname>-main`
+
+This task is complete when you've successfully pushed your branch to GitHub
+
+### Task 03.02 - Subsystems
+Each mechanism of the robot will have a subsystem in the code to control it in the `src/main/java/frc/robot/subsystems` folder. For some examples
+look at https://github.com/Yet-Another-Software-Suite/YAMS/blob/master/examples/hooded_shooter/java/frc/robot/subsystems/FlywheelSubsystem.java
+
+Our example robot will have the following subsystems:
+* Drivetrain - Swerve drive, reused design from the 2026 robot
+* Flywheel - Single flywheel shooter that launches foam dodgeballs toward a basket
+* Shooter Feeder - Single motor belt mechanism that feeds balls into the flywheel when it is spinning fast enough to make a basket
+* Intake - Single motor mechanism that pulls dodgeballs into the robot so they can be launched later
+
+This task is complete when you have created all 4 Subsystem classes extending `SubsystemBase` in the subsystems folder and pushed your changes to Github
+
+### Task 03.03 - Configure the Swerve Drive
+We will do swerve the "hard" way (not really) by configuring it in the code rather than using YAGSL to load JSON files.
+Take a look at https://github.com/Yet-Another-Software-Suite/YAMS/blob/master/examples/swerve_drive/java/frc/robot/subsystems/SwerveSubsystem.java 
+to see how this works, and then configure your swerve subsystem based on the config in 
+https://github.com/frc-8234-panthinators/2027-Redux-Rewrite/tree/main/src/main/deploy/swerve
+
+This task is complete when you have configured your swerve subsystem and pushed your changes to Github
+
+### Task 03.04 - Configure the Flywheel
+The flywheel is powered by a single Kraken x60 motor. The target speed is 4000 RPM when active
+
+Look at https://github.com/Yet-Another-Software-Suite/YAMS/blob/master/examples/hooded_shooter/java/frc/robot/subsystems/FlywheelSubsystem.java as an example 
+and set up the flywheel subsystem to control a single Kraken x60 motor with closed loop PID control,
+not inverted, and 40A of current limit. You do not need to configure the simulation settings
+
+This task is complete when you have configured your Flywheel subsystem and pushed your changes to Github
+
+### Task 03.05 - Configure the Feeder
+The feeder is powered by a single Kraken x44 motor. The target speed is 6500 RPM when active and geared with a 5-to-1 planetary gearbox 
+to reduce the motor speed while increasing torque
+
+Look at https://github.com/Yet-Another-Software-Suite/YAMS/blob/master/examples/hooded_shooter/java/frc/robot/subsystems/FlywheelSubsystem.java as an example 
+and set up the flywheel subsystem to control a single Kraken x44 motor with closed loop PID control,
+not inverted, 5:1 gearing, and 30A of current limit. You do not need to configure the simulation settings
+
+This task is complete when you have configured your Feeder subsystem and pushed your changes to Github
+
+
+### Task 03.06 - Configure the Intake
+The feeder is powered by a single Kraken x44 motor. The target speed is 7500 RPM when active
+
+Look at https://github.com/Yet-Another-Software-Suite/YAMS/blob/master/examples/hooded_shooter/java/frc/robot/subsystems/FlywheelSubsystem.java as an example 
+and set up the flywheel subsystem to control a single Kraken x44 motor with closed loop PID control,
+inverted, and 30A of current limit. You do not need to configure the simulation settings
+
+This task is complete when you have configured your Intake subsystem and pushed your changes to Github
+
+### Task 03.07 - Configure the Controller
+Now that your subsystems are set up you can control them using commands. For this training we will use the following Xbox control scheme:
+* Left Trigger - Enable Flywheel
+* Right Trigger - Feed ball if and only if flywheel is at target speed
+* X button - Run Intake
+* Left Stick - Move robot in translation
+* Right Stick X - Rotate robot
+
+First, you should create the XBoxContainer to handle setting up the Xbox controls and triggers. See the example from last year https://github.com/frc-8234-panthinators/2026-Robot-Code/blob/main/src/main/java/frc/robot/XBoxContainer.java
+
+This task is complete when you've created the XBoxContainer class, set up named Trigger member variables for the Flywheel, Feeder, and Intake, 
+and added driveX, driveY, and rotate methods that get the joystick values.
+
+### Task 03.08 - Configure the Commands for Triggers
+With a controller and all of the subsystems set up you can make the controls run commands.
+
+Look at https://github.com/frc-8234-panthinators/2026-Robot-Code/blob/main/src/main/java/frc/robot/RobotContainer.java for an example of running
+commands based on triggers and set them up in your RobotContainer for the Flywheel, Feeder, and Intake
+
+This task is complete when the bindings are configured for the Flywheel, Feeder, and Intake and you've pushed your changes to Github
+
+### Task 03.09 - Configure the Drive Command
+The last step is to set up the drive system to follow the joystick inputs. Look at https://github.com/frc-8234-panthinators/2026-Robot-Code/blob/5358f7a65eda04053c1dda1ab45d984d22cffd0f/src/main/java/frc/robot/Robot.java#L187 as an example and configure your robot code
+to work as described in 03.07
+
+This task is complete when you have configured the drive controls and you've pushed your changes to Github
